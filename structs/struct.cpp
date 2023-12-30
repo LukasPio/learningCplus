@@ -17,28 +17,30 @@ struct Employee {
 
         void giveRise(double rise) {
             salary += rise;
-            cout << "New salary: " << salary;
+            cout << "New salary of "<< fullName << ": " << salary;
         }
 
         void print() {
-        cout << "Name....:" << fullName << endl;
+        cout << "\n-------------------------------\n\n";
+        cout << "Name....: " << fullName << endl;
         cout << "Age.....: " << age << endl;
-        cout << "Gender: " << gender << endl;
-        cout << "Salary: " << salary << endl;
+        cout << "Gender..: " << gender << endl;
+        cout << "Salary..: " << salary << endl;
 }
     };
 
 int main() {
 
-    Employee employees[] = {};
+    Employee *employees = new Employee[3];
 
-    Employee anEmployee;
+    employees[0].insert("John Doe", 30, 'M', 50000.0);
+    employees[1].insert("Alice Johnson", 25, 'F', 60000.0);
+    employees[2].insert("Bob Smith", 35, 'M', 55000.0);
 
-    anEmployee.insert("Lucas Pio", 15, 'M', 7984.99);
-
-    anEmployee.print();
-
-    anEmployee.giveRise(400);
+    for (int i = 0; i < 3; i++) {
+        employees[i].print();
+        employees[i].giveRise(430);
+    } 
 
     return 0;
 }
